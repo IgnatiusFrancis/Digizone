@@ -1,0 +1,11 @@
+{
+  "port": "3100",
+  "mongodbURL": "mongodb://127.0.0.1:27017/digizone",
+  "adminSecretToken": "admin123456",
+  "MAIL_HOST": "smtp.gmail.com",
+  "MAIL_USER": "ayateam4pms@gmail.com",
+  "MAIL_PASSWORD": "povkrndvgoxjcduu",
+  "MAIL_FROM": "ayateam4pms@gmail.com",
+
+  "MAIL_TRANSPORT": "smtp://${MAIL_USER}:${MAIL_PASSWORD}@${MAIL_HOST}"
+}
