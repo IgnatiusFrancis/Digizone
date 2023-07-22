@@ -11,7 +11,7 @@ import config from 'config';
   imports: [
     MailerModule.forRootAsync({
       imports: [ConfigModule], // import module if not enabled globally
-      useFactory: async (config: ConfigService) => ({
+      useFactory: async () => ({
         // transport: config.get("MAIL_TRANSPORT"),
         // or
         transport: {
@@ -20,8 +20,8 @@ import config from 'config';
           port: 465,
           secure: false,
           auth: {
-            user: 'ayateam4pms@gmail.com',
-            pass: 'povkrndvgoxjcduu',
+            user: config.get('MAIL_USER'),
+            pass: config.get('MAIL_PASSWORD'),
           },
           tls: {
             rejectUnauthorized: false, // <-- Add this line
