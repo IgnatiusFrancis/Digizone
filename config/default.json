@@ -7,5 +7,6 @@
   "MAIL_PASSWORD": "povkrndvgoxjcduu",
   "MAIL_FROM": "ayateam4pms@gmail.com",
 
-  "MAIL_TRANSPORT": "smtp://${MAIL_USER}:${MAIL_PASSWORD}@${MAIL_HOST}"
+  "MAIL_TRANSPORT": "smtp://${MAIL_USER}:${MAIL_PASSWORD}@${MAIL_HOST}",
+  "JWT_SECRET": "SFVSTVBS%#S@SFSHSMKS"
 }

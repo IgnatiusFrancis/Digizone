@@ -47,4 +47,26 @@ export class MailService {
         console.log(err);
       });
   }
+
+  async forgotPassword(user: User, password: string) {
+    const url = `digitic.com/forgotpassword/confirm?token=${password}`;
+
+    await this.mailerService
+      .sendMail({
+        to: user.email,
+        subject: 'Welcome to Nice App! Confirm your Email',
+        template: './forgotPassword',
+        context: {
+          name: user.name,
+          url,
+          password,
+        },
+      })
+      .then((success) => {
+        //console.log(success);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 }

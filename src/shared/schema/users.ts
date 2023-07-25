@@ -26,6 +26,9 @@ export class User extends Document {
   isVerified: boolean;
 
   @Prop({ default: null })
+  otp: string;
+
+  @Prop({ default: null })
   otpExpiryTime: Date;
 }
 

@@ -10,9 +10,6 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true, // no need to import into other modules
-    }),
     MongooseModule.forRoot(config.get('mongodbURL')),
     UsersModule,
     MailModule,
@@ -21,7 +18,7 @@ import { ConfigModule } from '@nestjs/config';
   providers: [
     AppService,
     {
-      provide: 'App_FILTER',
+      provide: 'APP_FILTER',
       useClass: AllExceptionsFilter,
     },
   ],

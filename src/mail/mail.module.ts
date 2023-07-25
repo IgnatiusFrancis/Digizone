@@ -16,7 +16,7 @@ import config from 'config';
         // or
         transport: {
           service: 'gmail',
-          host: 'smtp.gmail.com',
+          host: config.get('MAIL_HOST'),
           port: 465,
           secure: false,
           auth: {

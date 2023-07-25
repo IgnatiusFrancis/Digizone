@@ -30,6 +30,5 @@ export class CreateUserDto {
   @IsOptional()
   secretToken?: string;
 
-  @IsBoolean()
   isVerified: boolean;
 }
