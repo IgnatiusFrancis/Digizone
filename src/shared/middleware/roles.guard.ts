@@ -1,13 +1,5 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import * as jwt from 'jsonwebtoken';
-
-interface JWTPayload {
-  name: string;
-  id: number;
-  iat: number;
-  exp: number;
-}
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -21,6 +13,7 @@ export class AuthGuard implements CanActivate {
 
     if (roles?.length) {
       const { user } = context.switchToHttp().getRequest();
+
       return roles.some((role) => user.type?.includes(role));
     }
     return true;

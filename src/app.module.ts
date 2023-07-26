@@ -3,11 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import config from 'config';
-import { AllExceptionsFilter } from './httpExceptionFilter';
+import { AllExceptionFilter } from './httpExceptionFilter';
 import { UsersModule } from './users/users.module';
 import { MailModule } from './mail/mail.module';
-import { ConfigModule } from '@nestjs/config';
-
+import { AuthGuard } from 'src/shared/middleware/roles.guard';
 @Module({
   imports: [
     MongooseModule.forRoot(config.get('mongodbURL')),
@@ -19,7 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     AppService,
     {
       provide: 'APP_FILTER',
-      useClass: AllExceptionsFilter,
+      useClass: AllExceptionFilter,
     },
   ],
 })

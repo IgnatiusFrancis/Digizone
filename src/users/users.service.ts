@@ -205,8 +205,11 @@ export class UsersService {
   /**************** LOGIN USER CODES *******************/
   async findAll(type: string) {
     try {
-      console.log(type);
       const users = await this.userRepository.find({ type });
+
+      if (users.length === 0) {
+        throw new Error('Invalid type');
+      }
 
       return {
         success: true,

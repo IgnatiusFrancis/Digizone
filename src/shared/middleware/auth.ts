@@ -18,6 +18,7 @@ export class AuthMiddleware implements NestMiddleware {
   async use(req: Request | any, res: Response, next: NextFunction) {
     try {
       const token = req.cookies.token;
+
       if (!token) {
         throw new UnauthorizedException('No token found');
       }
@@ -26,7 +27,7 @@ export class AuthMiddleware implements NestMiddleware {
       const user = await this.userReposity.findById(decoded.id);
 
       if (!user) {
-        throw new UnauthorizedException();
+        throw new UnauthorizedException('Invalid user');
       }
 
       user.password = undefined;

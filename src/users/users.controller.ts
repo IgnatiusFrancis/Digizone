@@ -16,6 +16,8 @@ import { Response } from 'express';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { Roles } from 'src/shared/middleware/role.decorators';
+import { userTypes } from 'src/shared/schema/users';
 
 @Controller('users')
 export class UsersController {
@@ -72,9 +74,9 @@ export class UsersController {
     return await this.usersService.forgotPassword(email);
   }
 
+  @Roles(userTypes.ADMIN)
   @Get()
   async findAll(@Query('type') type: string) {
-    console.log(type);
     return await this.usersService.findAll(type);
   }
 
